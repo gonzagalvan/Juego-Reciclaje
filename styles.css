@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+.elemento {
+    font-size: 24px;
+    margin: 20px 0;
+}
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+#resultado {
+    margin-top: 20px;
+    font-size: 20px;
+}

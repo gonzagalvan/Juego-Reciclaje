@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Reciclaje</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-image: url(images/fondo.gif);
+        }
+        .elemento {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .imagen {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 20px 0;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        .pantalla-inicio {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .pantalla-juego {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="pantalla-inicio" id="pantallaInicio">
+        <h1>Juego de Reciclaje</h1>
+        <button onclick="iniciarJuego()">Comenzar</button>
+    </div>
+    <div class="pantalla-juego" id="pantallaJuego">
+        <h1>¿Es reciclable?</h1>
+        <div class="elemento" id="elemento"></div>
+        <img src="" alt="Imagen del elemento" class="imagen" id="imagenElemento">
+        <button onclick="verificarReciclable(true)">Reciclable</button>
+        <button onclick="verificarReciclable(false)">No reciclable</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script src="juego.js"></script>
+</body>
+</html>
