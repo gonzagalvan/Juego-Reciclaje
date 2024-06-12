@@ -18,25 +18,28 @@ const niveles = [
 ];
 
 let nivelActual = 0;
-let indiceActual = 0;
+let elementosNivelActual;
 let puntaje = 0;
 let racha = 0;
 
 function iniciarJuego() {
     document.getElementById('pantallaInicio').style.display = 'none';
     document.getElementById('pantallaJuego').style.display = 'block';
+    elementosNivelActual = niveles[nivelActual].slice();
     mostrarElemento();
 }
 
 function mostrarElemento() {
-    const elementos = niveles[nivelActual];
-    if (indiceActual < elementos.length) {
-        const elemento = elementos[indiceActual];
+    if (elementosNivelActual.length > 0) {
+        const indiceAleatorio = Math.floor(Math.random() * elementosNivelActual.length);
+        const elemento = elementosNivelActual.splice(indiceAleatorio, 1)[0];
+
         document.getElementById('elemento').innerText = elemento.nombre;
         document.getElementById('imagenElemento').src = elemento.imagen;
+
     } else if (nivelActual < niveles.length - 1) {
         nivelActual++;
-        indiceActual = 0;
+        elementosNivelActual = niveles[nivelActual].slice();
         document.getElementById('elemento').innerText = `¡Nivel ${nivelActual + 1}!`;
         document.getElementById('imagenElemento').src = '';
         setTimeout(() => {
@@ -51,21 +54,20 @@ function mostrarElemento() {
 }
 
 function verificarReciclable(respuesta) {
-    const elementos = niveles[nivelActual];
-    if (indiceActual < elementos.length) {
-        const elemento = elementos[indiceActual];
+    if (elementosNivelActual.length >= 0) {
+        const elementos = niveles[nivelActual];
+        const elemento = elementos[elementos.length - elementosNivelActual.length - 1];
         if (respuesta === elemento.reciclable) {
             puntaje += elemento.puntos;
             racha++;
             if (racha % 3 === 0) {
-                puntaje += 2; // Bonificación por racha
+                puntaje += 2; 
             }
             document.getElementById('resultado').innerText = '¡Correcto!';
         } else {
             document.getElementById('resultado').innerText = 'Incorrecto.';
-            racha = 0; // Reiniciar racha en caso de respuesta incorrecta
+            racha = 0; 
         }
-        indiceActual++;
         setTimeout(() => {
             document.getElementById('resultado').innerText = '';
             mostrarElemento();
