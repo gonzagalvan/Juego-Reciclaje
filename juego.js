@@ -9,11 +9,12 @@ const niveles = [
     [
         { nombre: 'Caja leche', reciclable: true, puntos: 2, imagen: 'images/carton-leche.png' },
         { nombre: 'Botella vidrio', reciclable: true, puntos: 2, imagen: 'images/botella-vidrio.png' },
-        { nombre: 'Paquete de papas fritas', reciclable: false, puntos: 2, imagen: 'images/bolsa-papas.png' },
+        { nombre: 'Paquete de papas fritas', reciclable: false, puntos: 2, imagen: 'images/bolsa-papas.png' }
     ],
     [
         { nombre: 'Pilas', reciclable: true, puntos: 3, imagen: 'images/bateria.png' },
-        { nombre: 'Paquete de papas fritas', reciclable: false, puntos: 3, imagen: 'images/lata-coca.png' },
+        { nombre: 'Teclado y mouse', reciclable: true, puntos: 3, imagen: 'images/teclado-mouse.png' },
+        { nombre: 'CD', reciclable: true, puntos: 3, imagen: 'images/CD.png' }
     ]
 ];
 
